@@ -34,7 +34,7 @@ export default function HomePage() {
   };
 
   const bestTimeKey = `${gridSize}-${orderMode}`;
-  const bestTime = stats.bestTimes[bestTimeKey];
+  const bestTime = (stats.bestTimes as Record<string, number>)[bestTimeKey];
 
   if (isLoading) {
     return (

@@ -22,7 +22,7 @@ export function ResultCard() {
   const totalCells = gridSize * gridSize;
   const accuracy = Math.round(((totalCells - mistakes) / (totalCells + mistakes)) * 100) || 100;
   const key = `${gridSize}-${orderMode}`;
-  const bestTime = stats.bestTimes[key];
+  const bestTime = (stats.bestTimes as Record<string, number>)[key];
   const isNewBest = isCompleted && bestTime && elapsedTime <= bestTime;
 
   const handlePlayAgain = () => {
