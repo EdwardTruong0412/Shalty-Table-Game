@@ -196,94 +196,101 @@ export default function HomePage() {
       {/* How to Play modal */}
       {showHelp && (
         <div className="fixed inset-0 bg-black/50 flex items-end sm:items-center justify-center z-50">
-          <div className="bg-white dark:bg-gray-800 rounded-t-2xl sm:rounded-2xl w-full max-w-md p-6 space-y-5 max-h-[85vh] overflow-y-auto">
-            <div className="flex items-center justify-between">
+          <div className="bg-white dark:bg-gray-800 rounded-t-2xl sm:rounded-2xl w-full max-w-md max-h-[85vh] flex flex-col">
+            {/* Fixed Header */}
+            <div className="flex items-center justify-between p-6 pb-4 border-b border-gray-200 dark:border-gray-700">
               <h2 className="text-xl font-bold">How to Play</h2>
               <Button variant="ghost" size="sm" onClick={() => setShowHelp(false)}>
                 Close
               </Button>
             </div>
 
-            {/* What is Schulte Table */}
-            <div className="space-y-2">
-              <h3 className="font-semibold text-blue-600 dark:text-blue-400">What is a Schulte Table?</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-300">
-                A Schulte Table is a grid of randomly arranged numbers used to train your focus,
-                peripheral vision, and mental speed. It&apos;s used by athletes, pilots, and students worldwide.
-              </p>
+            {/* Scrollable Content */}
+            <div className="flex-1 overflow-y-auto p-6 space-y-5">
+              {/* What is Schulte Table */}
+              <div className="space-y-2">
+                <h3 className="font-semibold text-blue-600 dark:text-blue-400">What is a Schulte Table?</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">
+                  A Schulte Table is a grid of randomly arranged numbers used to train your focus,
+                  peripheral vision, and mental speed. It&apos;s used by athletes, pilots, and students worldwide.
+                </p>
+              </div>
+
+              {/* How to play steps */}
+              <div className="space-y-3">
+                <h3 className="font-semibold text-blue-600 dark:text-blue-400">How to Play</h3>
+
+                <div className="flex gap-3 items-start">
+                  <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
+                    <span className="text-blue-600 dark:text-blue-400 font-bold text-sm">1</span>
+                  </div>
+                  <div>
+                    <p className="font-medium">Configure your game</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">Choose grid size (5×5 to 7×7), time limit, and order</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-3 items-start">
+                  <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
+                    <span className="text-blue-600 dark:text-blue-400 font-bold text-sm">2</span>
+                  </div>
+                  <div>
+                    <p className="font-medium">Find numbers in order</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">Tap 1, 2, 3... (ascending) or 25, 24, 23... (descending)</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-3 items-start">
+                  <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
+                    <span className="text-blue-600 dark:text-blue-400 font-bold text-sm">3</span>
+                  </div>
+                  <div>
+                    <p className="font-medium">Beat the clock</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">Complete before time runs out. Fewer mistakes = better score!</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Tips */}
+              <div className="space-y-3">
+                <h3 className="font-semibold text-blue-600 dark:text-blue-400">Pro Tips</h3>
+
+                <div className="flex gap-3 items-start">
+                  <Eye className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <p className="text-sm text-gray-600 dark:text-gray-300">
+                    <span className="font-medium">Focus on the center.</span> Use peripheral vision to spot numbers without moving your eyes too much.
+                  </p>
+                </div>
+
+                <div className="flex gap-3 items-start">
+                  <Target className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
+                  <p className="text-sm text-gray-600 dark:text-gray-300">
+                    <span className="font-medium">Accuracy over speed.</span> Wrong taps waste time. Be precise!
+                  </p>
+                </div>
+
+                <div className="flex gap-3 items-start">
+                  <Clock className="w-5 h-5 text-purple-500 flex-shrink-0 mt-0.5" />
+                  <p className="text-sm text-gray-600 dark:text-gray-300">
+                    <span className="font-medium">Practice daily.</span> Even 3-5 minutes a day improves focus significantly.
+                  </p>
+                </div>
+
+                <div className="flex gap-3 items-start">
+                  <Trophy className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-0.5" />
+                  <p className="text-sm text-gray-600 dark:text-gray-300">
+                    <span className="font-medium">Track progress.</span> Check your history to see improvement over time.
+                  </p>
+                </div>
+              </div>
             </div>
 
-            {/* How to play steps */}
-            <div className="space-y-3">
-              <h3 className="font-semibold text-blue-600 dark:text-blue-400">How to Play</h3>
-
-              <div className="flex gap-3 items-start">
-                <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
-                  <span className="text-blue-600 dark:text-blue-400 font-bold text-sm">1</span>
-                </div>
-                <div>
-                  <p className="font-medium">Configure your game</p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">Choose grid size (5×5 to 7×7), time limit, and order</p>
-                </div>
-              </div>
-
-              <div className="flex gap-3 items-start">
-                <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
-                  <span className="text-blue-600 dark:text-blue-400 font-bold text-sm">2</span>
-                </div>
-                <div>
-                  <p className="font-medium">Find numbers in order</p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">Tap 1, 2, 3... (ascending) or 25, 24, 23... (descending)</p>
-                </div>
-              </div>
-
-              <div className="flex gap-3 items-start">
-                <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
-                  <span className="text-blue-600 dark:text-blue-400 font-bold text-sm">3</span>
-                </div>
-                <div>
-                  <p className="font-medium">Beat the clock</p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">Complete before time runs out. Fewer mistakes = better score!</p>
-                </div>
-              </div>
+            {/* Fixed Footer */}
+            <div className="p-6 pt-4 border-t border-gray-200 dark:border-gray-700">
+              <Button className="w-full" onClick={() => setShowHelp(false)}>
+                Got it!
+              </Button>
             </div>
-
-            {/* Tips */}
-            <div className="space-y-3">
-              <h3 className="font-semibold text-blue-600 dark:text-blue-400">Pro Tips</h3>
-
-              <div className="flex gap-3 items-start">
-                <Eye className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                <p className="text-sm text-gray-600 dark:text-gray-300">
-                  <span className="font-medium">Focus on the center.</span> Use peripheral vision to spot numbers without moving your eyes too much.
-                </p>
-              </div>
-
-              <div className="flex gap-3 items-start">
-                <Target className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
-                <p className="text-sm text-gray-600 dark:text-gray-300">
-                  <span className="font-medium">Accuracy over speed.</span> Wrong taps waste time. Be precise!
-                </p>
-              </div>
-
-              <div className="flex gap-3 items-start">
-                <Clock className="w-5 h-5 text-purple-500 flex-shrink-0 mt-0.5" />
-                <p className="text-sm text-gray-600 dark:text-gray-300">
-                  <span className="font-medium">Practice daily.</span> Even 3-5 minutes a day improves focus significantly.
-                </p>
-              </div>
-
-              <div className="flex gap-3 items-start">
-                <Trophy className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-0.5" />
-                <p className="text-sm text-gray-600 dark:text-gray-300">
-                  <span className="font-medium">Track progress.</span> Check your history to see improvement over time.
-                </p>
-              </div>
-            </div>
-
-            <Button className="w-full" onClick={() => setShowHelp(false)}>
-              Got it!
-            </Button>
           </div>
         </div>
       )}
